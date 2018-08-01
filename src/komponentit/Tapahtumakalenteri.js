@@ -6,6 +6,7 @@ import {haeKayttaja, haeTapahtumaLista, haeKayttajaLista, luoEvent, poistaEvent,
 import Kayttajalomake from './Kayttajalomake';
 import Kayttajalista from './Kayttajalista';
 
+
 class Tapahtumakalenteri extends Component {
 
     state = {eventit: [], userit: [], passwordAlku: "",email:"", user_id:"", onKirjautunut: false, salasana: ""} 
@@ -73,7 +74,9 @@ class Tapahtumakalenteri extends Component {
 
         return (
             <div>
+
                 Email:{this.state.email}
+
                 <div className="borderlegend">Tapahtumakalenteri</div>
                 <div className="tapahtumakalenteri">
 
@@ -83,6 +86,7 @@ class Tapahtumakalenteri extends Component {
                     {/* {varoitus} */}
                     <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
                     <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/>
+                   
                     </div>
             );
     }
