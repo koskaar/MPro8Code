@@ -6,7 +6,7 @@ import {haeTapahtumaLista, haeKayttajaLista, luoEvent, poistaEvent, luoKayttaja,
 import Kayttajalomake from './Kayttajalomake';
 import Kayttajalista from './Kayttajalista';
 
-class Tapahtumakalenteri extends Component {
+    
     // state = {eventit: [], msg: "Haetaan dataa"} Toiminnallisuus ennen kayttajan lisäystä
     // componentDidMount() {
     //     this.haeListaJaPaivita();
@@ -28,11 +28,10 @@ class Tapahtumakalenteri extends Component {
     //             this.haeListaJaPaivita();
     //         }.bind(this));
     // }
+class Tapahtumakalenteri extends Component {
+    
     state = {eventit: [], userit: [], msg: "Haetaan dataa"} 
-    componentDidMount() {
-        this.haeTapahtumaListaJaPaivita();
-        this.haeKayttajaListaJaPaivita();
-    }
+    
     haeTapahtumaListaJaPaivita = () => {
         haeTapahtumaLista(function (lista) {
             this.setState({eventit: lista, msg: null});
@@ -69,20 +68,24 @@ class Tapahtumakalenteri extends Component {
             }.bind(this));
     }
 
-
+    
+        componentDidMount() {
+            this.haeTapahtumaListaJaPaivita();
+            this.haeKayttajaListaJaPaivita();
+        }
     render() {
         return (
             <div>
                 <div className="borderlegend">Tapahtumakalenteri</div>
                 <div className="tapahtumakalenteri">
-                    <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma}/>
+                     <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma}/> 
                     <Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma}/></div>
-                    <Kayttajakirjautuminen/>
-                    <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
-                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/>
-                    </div>
+                    <Kayttajakirjautuminen/> 
+                     <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
+                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/> 
+                
+            </div>
             );
     }
 }
-
 export default Tapahtumakalenteri;
