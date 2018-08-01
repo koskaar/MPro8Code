@@ -2,106 +2,73 @@ import React, {Component} from 'react';
 import Tapahtumalista from './Tapahtumalista';
 import Tapahtumalomake from "./Tapahtumalomake";
 import Kayttajakirjautuminen from './Kayttajakirjautuminen';
-import {haeLista, luoEvent, poistaEvent} from "../palvelu";
-
-// let data =
-//     [
-//         {
-//             "name": "AcademyAfterWork", 
-//             "time": "", 
-//             "category": "Virkistäytyminen", 
-//             "location": "Keilaranta 6, Espoo", 
-//             "price": "maksuton", 
-//             "gps": "",
-//             "id": 1,
-
-//         },
-//         {
-//             "id": 2,
-//             "name": "AcademyAfterAfterWork", 
-//             "time": "", 
-//             "category": "nollaus", 
-//             "location": "Keilaranta 6, Espoo", 
-//             "price": "maksuton", 
-//             "gps": "",
-            
-//         },
-//         {
-//             "id": 3,
-//             "name": "AcademyJooga", 
-//             "time": "",
-//             "category": "Liikunta", 
-//             "location": "Keilaranta 6, Espoo", 
-//             "price": "maksuton",
-//              "gps": ""
-//         },
-//         {
-//             "id": 4,
-//             "name": "AcademyMindfulness", "time": "", 
-//             "category": "Virkistäytyminen", 
-//             "location": "Keilaranta 6, Espoo", 
-//             "price": "maksuton", 
-//             "gps": ""
-//         },
-//         {
-//             "id": 5,
-//             "name": "AcademyTT", 
-//             "time": "", 
-//             "category": "Verkostoituminen", 
-//             "location": "Keilaranta 6, Espoo",
-//              "price": "maksuton",
-//               "gps": ""
-//         }
-//     ];
+import {haeTapahtumaLista, haeKayttajaLista, luoEvent, poistaEvent, luoKayttaja, poistaKayttaja} from "../palvelu";
+import Kayttajalomake from './Kayttajalomake';
+import Kayttajalista from './Kayttajalista';
 
 class Tapahtumakalenteri extends Component {
-    state = {eventit: [], msg: "Haetaan dataa"}
+    // state = {eventit: [], msg: "Haetaan dataa"} Toiminnallisuus ennen kayttajan lisäystä
+    // componentDidMount() {
+    //     this.haeListaJaPaivita();
+    // }
+    // haeListaJaPaivita = () => {
+    //     haeLista(function (lista) {
+    //         this.setState({eventit: lista, msg: null});
+    //     }.bind(this));
+    // }
+    // uusiTapahtuma = (uusitapahtuma) => {
+    //     luoEvent(uusitapahtuma, function () {
+    //         this.haeListaJaPaivita();
+    //     }.bind(this));
+    // }
+    // poistaTapahtuma = (poistettavanId) => {
+    //     poistaEvent(poistettavanId)
+    //         .then(function (response) {
+    //             // response.status==204?
+    //             this.haeListaJaPaivita();
+    //         }.bind(this));
+    // }
+    state = {eventit: [], userit: [], msg: "Haetaan dataa"} 
     componentDidMount() {
-        this.haeListaJaPaivita();
+        this.haeTapahtumaListaJaPaivita();
+        this.haeKayttajaListaJaPaivita();
     }
-    haeListaJaPaivita = () => {
-        haeLista(function (lista) {
+    haeTapahtumaListaJaPaivita = () => {
+        haeTapahtumaLista(function (lista) {
             this.setState({eventit: lista, msg: null});
         }.bind(this));
     }
     uusiTapahtuma = (uusitapahtuma) => {
         luoEvent(uusitapahtuma, function () {
-            this.haeListaJaPaivita();
+            this.haeTapahtumaListaJaPaivita();
         }.bind(this));
     }
     poistaTapahtuma = (poistettavanId) => {
         poistaEvent(poistettavanId)
             .then(function (response) {
                 // response.status==204?
-                this.haeListaJaPaivita();
+                this.haeTapahtumaListaJaPaivita();
             }.bind(this));
     }
 
+    haeKayttajaListaJaPaivita = () => {
+        haeKayttajaLista(function (lista) {
+            this.setState({userit: lista, msg: null});
+        }.bind(this));
+    }
+    uusiKayttaja = (uusikayttaja) => {
+        luoKayttaja(uusikayttaja, function () {
+            this.haeKayttajaListaJaPaivita();
+        }.bind(this));
+    }
+    poistaKayttaja = (poistettavanId) => {
+        poistaKayttaja(poistettavanId)
+            .then(function (response) {
+                // response.status==204?
+                this.haeKayttajaListaJaPaivita();
+            }.bind(this));
+    }
 
-    // constructor(props) {
-    //     super(props);
-    //     // seuraava id hallinnoidaan täällä
-    //     var maxid = 1;
-    //     for (var i; i < data.length; ++i) {
-    //         if (data[i].id > maxid) maxid = data[i].id
-    //     }
-    //     this.state = {seuraavaid: maxid + 1, eventit: data};
-    // }
-
-    
-
-    // uusiTapahtuma = (uusisanonta) => {
-    //     uusisanonta.id = this.state.seuraavaid;
-    //     this.state.eventit.push(uusisanonta);
-    //     this.setState({seuraavaaid: this.state.seuraavaid + 1});
-    // }
-    // poistaTapahtuma = (poistettavanId) => {
-    //     // Etsitään ensin poistettavan sanonnan indeksi
-    //     var ind = this.state.eventit.findIndex((q) => q.id === poistettavanId);
-    //     // poistetaan indeksillä
-    //     this.state.eventit.splice(ind, 1);
-    //     this.setState(this.state);
-    // }
 
     render() {
         return (
@@ -111,6 +78,8 @@ class Tapahtumakalenteri extends Component {
                     <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma}/>
                     <Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma}/></div>
                     <Kayttajakirjautuminen/>
+                    <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
+                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/>
                     </div>
             );
     }
