@@ -9,8 +9,8 @@ class Kayttajalista extends Component {
                 return (<Kayttaja kayttaja={kayttaja} poista={this.props.poisto} key={kayttaja.user_id}/>);
             }.bind(this));
         return(
-            <div>
-                <div className="borderlegend">Kayttajalista</div>
+            <div><center>
+                <div className="borderlegend">Kayttajalista</div></center>
             <ul className="kayttajalista">
                 {kaikki}
             </ul>

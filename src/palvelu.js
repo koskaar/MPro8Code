@@ -31,7 +31,7 @@ export function luoEvent(event, callback) {
 }
 
 function poistaEvent(id) {
-    return fetch(baseurl+"/"+id, {
+    return fetch(baseurl+"?id="+id, {
         method: 'DELETE',
     });
 }
@@ -66,9 +66,37 @@ export function luoKayttaja(event, callback) {
 }
 
 function poistaKayttaja(id) {
-    return fetch(baseurlUser+"/"+id, {
+    return fetch(baseurlUser+"?id="+id, {
         method: 'DELETE',
     });
 }
+function haeKayttaja(email, password, callback) {
+    return fetch(baseurlUser+"?maili=" +email, {
+        method: 'GET',
+    })
+    .then(function (response) {
+        if (!response.ok) {
+            const errviesti = {
+                status: response.status,
+                statusText: response.statusText,
+                viesti: "Käyttäjän haku"
+            };
+            throw errviesti;
+        }
+        return response.json()
+    })
+    .then(function (olio) {
+        if(olio.pw === password){
+            console.log("Täsmää!");
+            callback(olio);
+        }
+        else {
+            console.log("Ei täsmää");
+            
+        } 
 
-export {haeTapahtumaLista, haeKayttajaLista, poistaEvent, poistaKayttaja}
+    });
+}
+
+
+export {haeKayttaja, haeTapahtumaLista, haeKayttajaLista, poistaEvent, poistaKayttaja}

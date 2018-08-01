@@ -4,6 +4,9 @@ export default class Tapahtumalomake extends Component {
     nimiMuuttunut = (e) => {
         this.setState({name: e.target.value});
     }
+    event_idMuuttunut = (e) => {
+        this.setState({event_id: e.target.value});
+    }
     kategoriaMuuttunut = (e) => {
         this.setState({category: e.target.value});
     }
@@ -37,7 +40,7 @@ export default class Tapahtumalomake extends Component {
                 <form className="tapahtumalomake" onSubmit={this.laheta}>
                     <table>
                         <tbody>
-                    <tr><td>Nimi: </td><td><input value={this.state.name} onChange={this.nimiMuuttunut}/></td></tr>
+                    <tr><td>Nimi: </td><td><input value={this.state.name} onChange={this.nimiMuuttunut}/></td></tr>                    
                     <tr><td>Kategoria: </td><td><input value={this.state.category} onChange={this.kategoriaMuuttunut}/></td></tr>
                     <tr><td>Aika: </td><td><input value={this.state.time} onChange={this.aikaMuuttunut}/></td></tr>
                     <tr><td>Sijainti: </td><td><input value={this.state.location} onChange={this.sijaintiMuuttunut}/></td></tr>
