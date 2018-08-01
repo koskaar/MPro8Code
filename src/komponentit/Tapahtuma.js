@@ -9,7 +9,6 @@ class Tapahtuma extends Component {
         return (
             
                 <div className="tapahtuma"><center>
-                    <div className="borderlegend">Tapahtumat</div>
                     <p className="tnimi">{this.props.tapahtuma.name}</p>
                     <p className="taika">{this.props.tapahtuma.time}</p>
                     <p className="tkategoria">{this.props.tapahtuma.category}</p>

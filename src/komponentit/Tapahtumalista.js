@@ -10,7 +10,8 @@ class Tapahtumalista extends Component {
             }.bind(this));
         return(
             <div>
-                <div className="borderlegend">Tapahtumalista</div>
+                <center>
+                <div className="borderlegend">Tapahtumalista</div></center>
             <ul className="tapahtumalista">
                 {kaikki}
             </ul>

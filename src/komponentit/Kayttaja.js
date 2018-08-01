@@ -9,7 +9,6 @@ class Kayttaja extends Component {
         return (
             
                 <div className="kayttajat"><center>
-                    <div className="borderlegend">Käyttäjät</div>
                     <p className="etunimi">{this.props.kayttaja.first_name}</p>
                     <p className="sukunimi">{this.props.kayttaja.last_name}</p>
                     <p className="email">{this.props.kayttaja.email}</p>

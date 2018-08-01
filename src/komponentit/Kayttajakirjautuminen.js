@@ -7,13 +7,13 @@ export default class Kayttajakirjautuminen extends Component {
     super(props);
 
     this.state = {
-      name: "",
+      email: "",
       password: ""
     };
   }
 
   validateForm() {
-    return this.state.name.length > 0 && this.state.password.length > 0;
+    return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
   handleChange = event => {
@@ -24,9 +24,13 @@ export default class Kayttajakirjautuminen extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.kirjaudu(this.state.email, this.state.password);
+    this.setState({email:"", password:""})
+    
   }
 
   render() {
+
     return (
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
@@ -50,7 +54,6 @@ export default class Kayttajakirjautuminen extends Component {
           <Button
             block
             bsSize="large"
-            disabled={!this.validateForm()}
             type="submit"
           >
             Login
