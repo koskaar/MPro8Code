@@ -31,19 +31,20 @@ import Kayttajakirjautuminen from './komponentit/Kayttajakirjautuminen';
  }
 
  class Navigation extends Component {
+
   render() {
       return (
-          <Navbar>
-              <Navbar.Header>
+          <Navbar style={{paddingTop:20}}><center>
+              <Navbar.Header className="navi">
                   <Navbar.Brand>
-                      <Link to="/">Etusivu</Link>
-                      <Link to="/login">Login</Link>
-                      
+                      <span><Link to="/" style={{ textDecoration: 'none',padding: 13, color: 'black', fontFamily:'Century Gothic', fontWeight:'bold' }}>ETUSIVU</Link></span>
+                      <span><Link to="/login" style={{ textDecoration: 'none', padding: 13, color: 'black', fontFamily:'Century Gothic', fontWeight:'bold'}}>KIRJAUDU</Link></span>
+
                   </Navbar.Brand>
                   {/* <Navbar.Toggle /> */}
               </Navbar.Header>
 
-          </Navbar>
+          </center></Navbar>
       );
   }
 }

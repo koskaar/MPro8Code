@@ -21,6 +21,17 @@
 .App-intro {
   font-size: large;
 }
+.navi{
+  background: linear-gradient(rgb(255, 255, 255),#FFEDE9);
+  background-color: #FFEDE9;
+  
+}
+body{
+  background-color: #FFEDE9;
+}
+
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

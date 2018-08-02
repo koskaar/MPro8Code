@@ -36,8 +36,8 @@ export default class Tapahtumalomake extends Component {
     render() {
         return (
             <div>
-                <div className="borderlegend">Tapahtumalomake</div>
-                <form className="tapahtumalomake" onSubmit={this.laheta}>
+                <div className="tapahtumalom" style={{fontFamily:'Century Gothic', padding:13, fontWeight:'bold'}}>Lisää tapahtuma</div>
+                <form className="tapahtumalomake" onSubmit={this.laheta} style={{padding:13, fontFamily:'Century Gothic'}}>
                     <table>
                         <tbody>
                     <tr><td>Nimi: </td><td><input value={this.state.name} onChange={this.nimiMuuttunut}/></td></tr>                    
@@ -46,7 +46,7 @@ export default class Tapahtumalomake extends Component {
                     <tr><td>Sijainti: </td><td><input value={this.state.location} onChange={this.sijaintiMuuttunut}/></td></tr>
                     <tr><td>Hinta: </td><td><input value={this.state.price} onChange={this.hintaMuuttunut}/></td></tr>
                     <tr><td>Koordinaatit: </td><td><input value={this.state.gps} onChange={this.gpsMuuttunut}/></td></tr>
-                    <tr><td></td><td><input type="submit" defaultValue="Lisää"/></td></tr>
+                    <tr><td></td><td><input type="submit" defaultValue="Lisää" style={{fontFamily:'Century Gothic'}}/></td></tr>
                         </tbody>
                     </table>
                 </form>

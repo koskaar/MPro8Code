@@ -6,34 +6,6 @@ import {haeKayttaja, haeTapahtumaLista, haeKayttajaLista, luoEvent, poistaEvent,
 import Kayttajalomake from './Kayttajalomake';
 import Kayttajalista from './Kayttajalista';
 
-<<<<<<< HEAD
-    
-    // state = {eventit: [], msg: "Haetaan dataa"} Toiminnallisuus ennen kayttajan lisäystä
-    // componentDidMount() {
-    //     this.haeListaJaPaivita();
-    // }
-    // haeListaJaPaivita = () => {
-    //     haeLista(function (lista) {
-    //         this.setState({eventit: lista, msg: null});
-    //     }.bind(this));
-    // }
-    // uusiTapahtuma = (uusitapahtuma) => {
-    //     luoEvent(uusitapahtuma, function () {
-    //         this.haeListaJaPaivita();
-    //     }.bind(this));
-    // }
-    // poistaTapahtuma = (poistettavanId) => {
-    //     poistaEvent(poistettavanId)
-    //         .then(function (response) {
-    //             // response.status==204?
-    //             this.haeListaJaPaivita();
-    //         }.bind(this));
-    // }
-class Tapahtumakalenteri extends Component {
-    
-    state = {eventit: [], userit: [], msg: "Haetaan dataa"} 
-    
-=======
 
 class Tapahtumakalenteri extends Component {
 
@@ -43,7 +15,7 @@ class Tapahtumakalenteri extends Component {
         this.haeTapahtumaListaJaPaivita();
         this.haeKayttajaListaJaPaivita();
     }
->>>>>>> 73e8a9bab5ab9e596a83ac410e8ac1b0db1b6cb8
+
     haeTapahtumaListaJaPaivita = () => {
         haeTapahtumaLista(function (lista) {
             this.setState({eventit: lista, msg: null});
@@ -79,14 +51,7 @@ class Tapahtumakalenteri extends Component {
                 this.haeKayttajaListaJaPaivita();
             }.bind(this));
     }
-<<<<<<< HEAD
 
-    
-        componentDidMount() {
-            this.haeTapahtumaListaJaPaivita();
-            this.haeKayttajaListaJaPaivita();
-        }
-=======
     kirjaudu = (email, password) => {
         this.setState({passwordAlku: password})
         haeKayttaja(email, password, function(olio) {
@@ -95,7 +60,7 @@ class Tapahtumakalenteri extends Component {
         }.bind(this));
     }
 
->>>>>>> 73e8a9bab5ab9e596a83ac410e8ac1b0db1b6cb8
+
     render() {
 
         // let varoitus;
@@ -115,27 +80,19 @@ class Tapahtumakalenteri extends Component {
 
                 Email:{this.state.email}
 
-                <div className="borderlegend">Tapahtumakalenteri</div>
+
                 <div className="tapahtumakalenteri">
-<<<<<<< HEAD
-                     <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma}/> 
-                    <Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma}/></div>
-                    <Kayttajakirjautuminen/> 
-                     <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
-                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/> 
-                
-            </div>
-=======
+
 
                     <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma}/>
                     <Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma}/></div>
-                    <Kayttajakirjautuminen kirjaudu={this.kirjaudu}/>
+                    {/* <Kayttajakirjautuminen kirjaudu={this.kirjaudu}/>
                     {/* {varoitus} */}
-                    <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
-                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/>
+                    {/* <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
+                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/> */} */}
                    
                     </div>
->>>>>>> 73e8a9bab5ab9e596a83ac410e8ac1b0db1b6cb8
+
             );
     }
 }
