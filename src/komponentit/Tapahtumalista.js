@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Tapahtuma from './Tapahtuma';
-//import './Tapahtumalista.css';
+
 
 class Tapahtumalista extends Component {
     constructor(){

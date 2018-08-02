@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Tapahtumalista from './Tapahtumalista';
 import Tapahtumalomake from "./Tapahtumalomake";
-import Kayttajakirjautuminen from './Kayttajakirjautuminen';
+// import Kayttajakirjautuminen from './Kayttajakirjautuminen';
 import {haeKayttaja, haeTapahtumaLista, haeKayttajaLista, luoEvent, poistaEvent, luoKayttaja, poistaKayttaja} from "../palvelu";
-import Kayttajalomake from './Kayttajalomake';
-import Kayttajalista from './Kayttajalista';
+// import Kayttajalomake from './Kayttajalomake';
+// import Kayttajalista from './Kayttajalista';
 
 
 class Tapahtumakalenteri extends Component {
