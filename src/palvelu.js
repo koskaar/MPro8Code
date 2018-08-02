@@ -65,6 +65,7 @@ export function luoKayttaja(event) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(event)
     });
+        
 }
 
 function poistaKayttaja(id) {
@@ -74,37 +75,36 @@ function poistaKayttaja(id) {
     });
 }
 
-function haeKayttaja(email, password, callback) {
+function haeKayttaja(email, password, cb) {
     console.dir(arguments);
-    return fetch(baseurlUser+"?email=" +email, {
 
+    return fetch(baseurlUser + "?email=" + email, {
         method: 'GET',
     })
-    .then(function (response) {
-        if (!response.ok) {
-            const errviesti = {
-                status: response.status,
-                statusText: response.statusText,
-                viesti: "Käyttäjän haku"
-            };
-            throw errviesti;
-        }
-        return response.json()
-    })
-    .then(function (olio) {
-        if(olio.pw === password){
-            console.log("Täsmää!");
+        .then(function (response) {
+            if (!response.ok) {
+                const errviesti = {
+                    status: response.status,
+                    statusText: response.statusText,
+                    viesti: "Käyttäjän haku"
+                };
+                throw errviesti;
+            }
+            return response.json()
+        })
+        .then(function (olio) {
+            if (olio.pw === password) {
+                console.log("Täsmää!");
+                cb(olio);
+            }
+            else {
+                console.log("Ei täsmää");
+            }
+        });
 
-            callback(olio);
-        }
-        else {
-            console.log("Ei täsmää");
-            
-        } 
 
-    });
 }
 
+export { haeTapahtumaLista, haeKayttajaLista, poistaEvent, poistaKayttaja, haeKayttaja }
 
-export {haeKayttaja, haeTapahtumaLista, haeKayttajaLista, poistaEvent, poistaKayttaja}
 
