@@ -1,59 +1,29 @@
+import React from 'react';
+import {geolocated} from 'react-geolocated';
 
-// import React, { Component } from 'react';
+class Demo extends React.Component {
+  render() {
+    return !this.props.isGeolocationAvailable
+      ? <div>Your browser does not support Geolocation</div>
+      : !this.props.isGeolocationEnabled
+        ? <div>Geolocation is not enabled</div>
+        : this.props.coords
+          ? <table>
+            <tbody>
+              <tr><td>latitude</td><td>{this.props.coords.latitude}</td></tr>
+              <tr><td>longitude</td><td>{this.props.coords.longitude}</td></tr>
+              <tr><td>altitude</td><td>{this.props.coords.altitude}</td></tr>
+              <tr><td>heading</td><td>{this.props.coords.heading}</td></tr>
+              <tr><td>speed</td><td>{this.props.coords.speed}</td></tr>
+            </tbody>
+          </table>
+          : <div>Getting the location data&hellip; </div>;
+  }
+}
 
-// class Application extends Component {
-
-//   getInitialState () {
-//     return {
-//       selectedOption: 'option1'
-//     };
-//   };
-
-//   handleOptionChange (changeEvent) {
-//     this.setState({
-//       selectedOption: changeEvent.target.value
-//     });
-//   };
-
-//   handleFormSubmit (formSubmitEvent) {
-//     formSubmitEvent.preventDefault();
-
-//     console.log('You have selected:', this.state.selectedOption);
-//   };
-
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="row">
-//           <div className="col-sm-12">
-
-//             <form onSubmit={this.handleFormSubmit}>
-//               <div className="radio">
-//                 <label>
-//                   <input type="radio" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
-//                   Option 1
-//                 </label>
-//               </div>
-//               <div className="radio">
-//                 <label>
-//                   <input type="radio" value="option2" checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange}/>
-//                   Option 2
-//                 </label>
-//               </div>
-//               <div className="radio">
-//                 <label>
-//                   <input type="radio" value="option3" checked={this.state.selectedOption === 'option3'} onChange={this.handleOptionChange}/>
-//                   Option 3
-//                 </label>
-//               </div>
-//               <button className="btn btn-default" type="submit">Save</button>
-//             </form>
-
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Application;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(Demo);
