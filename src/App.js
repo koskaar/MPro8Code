@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-<<<<<<< HEAD
-import Tapahtumakalenteri from './komponentit/Tapahtumakalenteri';
-
-class App extends Component {
-  render() {
-    return (
-      <Tapahtumakalenteri/>
-  );
-}
-
-}
-
-export default App;
-=======
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Tapahtumakalenteri from './komponentit/Tapahtumakalenteri';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
@@ -65,4 +51,3 @@ import Kayttajakirjautuminen from './komponentit/Kayttajakirjautuminen';
 
  export default App;
 
->>>>>>> a00ea413918356816d4d97657d3c6f765dd2577f

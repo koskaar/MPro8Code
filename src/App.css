@@ -1,10 +1,5 @@
 .App {
   text-align: center;
-<<<<<<< HEAD
-  background-image:  'url(tausta.jpg)';
-
-=======
->>>>>>> a00ea413918356816d4d97657d3c6f765dd2577f
 }
 
 .App-logo {
@@ -26,8 +21,6 @@
 .App-intro {
   font-size: large;
 }
-<<<<<<< HEAD
-=======
 .navi{
   background: linear-gradient(rgb(255, 255, 255),#FFEDE9);
   background-color: #FFEDE9;
@@ -36,10 +29,6 @@
 body{
   background-color: #FFEDE9;
 }
-
-
-
->>>>>>> a00ea413918356816d4d97657d3c6f765dd2577f
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
