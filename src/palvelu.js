@@ -21,17 +21,21 @@ function haeTapahtumaLista(callback) {
 
 export function luoEvent(event, callback) {
     return fetch(baseurl, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(event)
-        })
+
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(event)
+    })
+
         .then(function (response) {
             callback(response.status);
         });
 }
 
 function poistaEvent(id) {
-    return fetch(baseurl+"?id="+id, {
+
+    return fetch(baseurl + "?id=" + id, {
+
         method: 'DELETE',
     });
 }
@@ -54,24 +58,26 @@ function haeKayttajaLista(callback) {
         });
 }
 
-export function luoKayttaja(event, callback) {
+export function luoKayttaja(event) {
     return fetch(baseurlUser, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(event)
-        })
-        .then(function (response) {
-            callback(response.status);
-        });
+
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(event)
+    });
 }
 
 function poistaKayttaja(id) {
-    return fetch(baseurlUser+"?id="+id, {
+
+    return fetch(baseurlUser + "?id=" + id, {
         method: 'DELETE',
     });
 }
+
 function haeKayttaja(email, password, callback) {
-    return fetch(baseurlUser+"?maili=" +email, {
+    console.dir(arguments);
+    return fetch(baseurlUser+"?email=" +email, {
+
         method: 'GET',
     })
     .then(function (response) {
@@ -88,6 +94,7 @@ function haeKayttaja(email, password, callback) {
     .then(function (olio) {
         if(olio.pw === password){
             console.log("Täsmää!");
+
             callback(olio);
         }
         else {
@@ -100,3 +107,4 @@ function haeKayttaja(email, password, callback) {
 
 
 export {haeKayttaja, haeTapahtumaLista, haeKayttajaLista, poistaEvent, poistaKayttaja}
+
