@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../cssKomponentit/Kayttajalomake.css';
 
 export default class Kayttajalomake extends Component {
 
@@ -32,22 +31,20 @@ export default class Kayttajalomake extends Component {
 
     render() {
         return (
-            <div className="Kayttajanlisays">
-            <center>
-                <p>LISÄÄ UUSI KÄYTTÄJÄ</p>
-                <form onSubmit={this.laheta}>
+
+            <div>
+                {/* <div className="borderlegend" style={{padding:13}}>Käyttäjän lisäys</div> */}
+                <form className="kayttajalisays" onSubmit={this.laheta} style={{ padding: 13, fontFamily: 'Century Gothic' }}>
                     <table>
                         <tbody>
-                            <tr><td className="datanNimi">Etunimi: </td><td><input value={this.state.name} onChange={this.etunimiMuuttunut} /></td></tr>
-                            <tr><td className="datanNimi">Sukunimi: </td><td><input value={this.state.category} onChange={this.sukunimiMuuttunut} /></td></tr>
-                            <tr><td className="datanNimi">Email: </td><td><input value={this.state.time} onChange={this.emailMuuttunut} /></td></tr>
-                            <tr><td className="datanNimi">Salasana: </td><td><input value={this.state.location} type="password" onChange={this.pwMuuttunut} /></td></tr>
-                            <tr><td></td><td><input type="submit" defaultValue="Lisää" /></td></tr>
+                            <tr><td>Etunimi: </td><td><input value={this.state.name} onChange={this.etunimiMuuttunut} /></td></tr>
+                            <tr><td>Sukunimi: </td><td><input value={this.state.category} onChange={this.sukunimiMuuttunut} /></td></tr>
+                            <tr><td>Email: </td><td><input value={this.state.time} onChange={this.emailMuuttunut} /></td></tr>
+                            <tr><td>Salasana: </td><td><input value={this.state.location} type="password" onChange={this.pwMuuttunut} /></td></tr>
+                            <tr><td></td><td><input type="submit" defaultValue="Rekisteröi käyttäjä" style={{ fontFamily: 'Century Gothic' }} /></td></tr>
                         </tbody>
                     </table>
                 </form>
-                </center>
-            </div>
-        );
+            </div>);
     }
 }

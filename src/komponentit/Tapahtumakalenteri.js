@@ -9,6 +9,7 @@ import Kayttajalista from './Kayttajalista';
 class Tapahtumakalenteri extends Component {
 
     state = { eventit: [], userit: [], msg: "Haetaan dataa", email: "", user_id: "", pwAlku: "", pwKayttaja: "", kirjautunut: false };
+
     componentDidMount() {
         this.haeTapahtumaListaJaPaivita();
         this.haeKayttajaListaJaPaivita();
@@ -52,7 +53,6 @@ class Tapahtumakalenteri extends Component {
                 this.haeKayttajaListaJaPaivita();
             }.bind(this));
     }
-
 
     kirjaudu = (email, password) => {
         this.setState({ pwAlku: password })
@@ -103,11 +103,11 @@ class Tapahtumakalenteri extends Component {
             return (
                 <div className="Tapahtumakalenteri">
                     <center>
-                    <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma} user_id={this.state.user_id} />
-                    <Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma} onkoKirjautunut={this.state.kirjautunut} />
-                    <button onClick={() => this.kirjauduUlos()}>Kirjaudu ulos</button>
-                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja} />
-                    {/* <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja} /> */}
+                        <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma} user_id={this.state.user_id} />
+                        <Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma} onkoKirjautunut={this.state.kirjautunut} />
+                        <button onClick={() => this.kirjauduUlos()}>Kirjaudu ulos</button>
+                        <Kayttajalomake lisaaKayttaja={this.uusiKayttaja} />
+                        {/* <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja} /> */}
                     </center>
                 </div>
             );

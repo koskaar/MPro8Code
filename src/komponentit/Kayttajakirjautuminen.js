@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import '../cssKomponentit/Kirjautuminen.css';
+
+
+import Kayttajalomake from './Kayttajalomake';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+
 
 export default class Kayttajakirjautuminen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {email: "", password: ""};
+
+    this.state = { email: "", password: "" };
   }
 
   validateForm() {
     return this.state.name.length > 0 && this.state.password.length > 0;
+
+
+
   }
 
   handleChange = event => {
@@ -23,40 +31,53 @@ export default class Kayttajakirjautuminen extends Component {
     event.preventDefault();
     this.props.kirjaudu(this.state.email, this.state.password);
   }
-
   render() {
+
     return (
-      <div className="Kayttajakirjautuminen">
-      <center>
-        <p>KIRJAUDU SISÄÄN</p>
-        <form onSubmit={this.handleSubmit}>
+      <div className="Login">
+        <form onSubmit={this.handleSubmit} style={{ padding: 13 }}>
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel className="Kayttajatunnus">Käyttäjätunnus</ControlLabel>
+            <ControlLabel style={{ fontFamily: 'Century Gothic', padding: 13 }}>Sähköposti</ControlLabel>
+
             <FormControl
               autoFocus
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
             />
-          <p></p>
+
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel className="Salasana">Salasana</ControlLabel>
+            <ControlLabel style={{ fontFamily: 'Century Gothic', padding: 13, }}>Salasana</ControlLabel>
+
             <FormControl
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
           </FormGroup>
-          <p></p>
-          <Button className="KirjauduNappula"
+
+          <Button style={{ fontFamily: 'Century Gothic', fontSize: 15, marginLeft: 96 }}
+            block
             bsSize="large"
-            type="submit"
-          >
+            type="submit">
             Kirjaudu
-          </Button>
+            </Button>
+
+
         </form>
-        </center>
+
+        <Router>
+          <div>
+            <Link to="/Kayttajalomake" style={{ textDecoration: 'none', paddingLeft: 13, color: 'black', fontFamily: 'Century Gothic' }}>Rekisteröidy tästä</Link>
+            <div className="move">
+              <Switch>
+                <Route exact path="/Kayttajalomake" component={Kayttajalomake} />
+              </Switch>
+            </div>
+          </div>
+        </Router>
+
       </div>
     );
   }
