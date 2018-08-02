@@ -18,6 +18,7 @@ class Tapahtuma extends Component {
         }
         return (
 
+
             <div className="Tapahtuma"><center>
                 <div className="borderlegend">TAPAHTUMA</div>
                 <p className="tnimi"><b>Tapahtuman nimi:</b> {this.props.tapahtuma.name}</p>
@@ -33,6 +34,7 @@ class Tapahtuma extends Component {
                 <p className="onkoKirjautunut">{this.props.onkoKirjautunut}</p>
             </center>
             </div>
+
 
         );
     }

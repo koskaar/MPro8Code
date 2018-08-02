@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Kayttajalomake from './Kayttajalomake';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import './Kayttajankirjautuminen.css'
 import { haeKayttaja, poistaKayttaja } from "../palvelu";
-
 
 export default class Kayttajakirjautuminen extends Component {
   constructor(props) {
@@ -52,12 +52,13 @@ export default class Kayttajakirjautuminen extends Component {
 
 
       
-      <div className="Login">
-        <form onSubmit={this.handleSubmit} style={{ padding: 13 }}>
-          <FormGroup controlId="email" bsSize="large">
-            <ControlLabel style={{ fontFamily: 'Century Gothic', padding: 13 }}>Sähköposti</ControlLabel>
+      <center><div className="Login">
 
-            <FormControl
+        <form onSubmit={this.handleSubmit} style= {{padding: 13, paddingRight: 40, background: 'rgba(255, 237, 233, 0.6)', paddingTop: 50}}>
+          <FormGroup controlId="email" bsSize="large">
+            <ControlLabel style = {{fontFamily:'Lucida Console', padding:13}}>Sähköposti</ControlLabel>
+            <FormControl className="hvr2"
+
               autoFocus
               type="email"
               value={this.state.email}
@@ -66,16 +67,18 @@ export default class Kayttajakirjautuminen extends Component {
 
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel style={{ fontFamily: 'Century Gothic', padding: 13, }}>Salasana</ControlLabel>
 
-            <FormControl
+            <ControlLabel style= {{fontFamily:'Lucida Console', padding:13, }}>Salasana</ControlLabel>
+            <FormControl style={{marginLeft:19}} className="hvr2"
+
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
           </FormGroup>
 
-          <Button style={{ fontFamily: 'Century Gothic', fontSize: 15, marginLeft: 96 }}
+          <Button style ={{fontFamily:'Lucida Console', fontSize:15, marginLeft:125, marginTop: 13, marginBottom: 30}}
+
             block
             bsSize="large"
             type="submit">
@@ -85,18 +88,7 @@ export default class Kayttajakirjautuminen extends Component {
 
         </form>
 
-        <Router>
-          <div>
-            <Link to="/Kayttajalomake" style={{ textDecoration: 'none', paddingLeft: 13, color: 'black', fontFamily: 'Century Gothic' }}>Rekisteröidy tästä</Link>
-            <div className="move">
-              <Switch>
-                <Route exact path="/Kayttajalomake" component={Kayttajalomake} />
-              </Switch>
-            </div>
-          </div>
-        </Router>
-
-      </div>
+      </div></center>
     );
   }
 }

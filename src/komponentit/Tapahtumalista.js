@@ -62,23 +62,28 @@ class Tapahtumalista extends Component {
         
         
         return (
-            <div>
+            <div><center>
 
-                <div><center>
-                    <Geolocated/>
+
+                <div>
+                    {/* <Geolocated/> */}
                     <div onChange={this.setGender.bind(this)}>
                             <input type="radio" value="name" name="gender"/> Nimi
                             <input type="radio" value="category" name="gender"/> Kategoria
                             <input type="radio" value="location" name="gender"/> Sijainti
                      </div>
+
+
                     <input className="center" type="text" value={this.state.search}
                         onChange={this.updateSearch.bind(this)} />
-                </center></div>
-                <div className="borderlegend" >Tapahtumalista</div>
-                <ul className="tapahtumalista">
-                    {kaikki}
-                </ul>
-            </div>
+                </div>
+
+                <div className="borderlegend" style={{fontFamily:'Lucida Console', textShadow: '2px 2px #D3D3D3', padding:13, background: 'rgba(255, 237, 233, 0.6)', fontSize: 20, paddingTop: 20, paddingBottom: 20}}>▿TAPAHTUMAT▿</div>
+            <ul className="tapahtumalista">
+                {kaikki}
+            </ul>
+
+            </center></div>
         );
     }
 }

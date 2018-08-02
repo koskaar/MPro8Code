@@ -70,6 +70,7 @@ class Tapahtumakalenteri extends Component {
         let varoitus;
 
 
+
         // Tarkastetaan, täsmäävätkö salasanat ja renderöidään
         // sen mukaisesti
         if (this.state.pwAlku !== this.state.pwKayttaja) {
@@ -81,16 +82,18 @@ class Tapahtumakalenteri extends Component {
 
         console.log(this.state.kirjautunut);
 
+
         // Tarkastetaan, onko käyttäjä kirjautunut sisään vai ei
         // ja renderöidään sen mukaisesti 
         if (this.state.kirjautunut === false) {
             return (
                 <div className="Tapahtumakalenteri">
 
+
                     <Tapahtumalista tapahtumat={this.state.eventit} onkoKirjautunut={this.state.kirjautunut} />
-                    <Kayttajakirjautuminen kirjaa={this.kirjaudu} />
+                    {/* <Kayttajakirjautuminen kirjaa={this.kirjaudu} />
                     {varoitus}
-                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja} />
+                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja} /> */}
                     {/* <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja} /> */}
                 </div>
             );

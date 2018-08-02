@@ -39,12 +39,14 @@ import Kayttajalomake from './komponentit/Kayttajalomake';
 
   render() {
       return (
-          <Navbar style={{paddingTop:20}}><center>
-              <Navbar.Header className="navi">
+          <Navbar ><center>
+              <Navbar.Header className="navi"style={{paddingTop:20, paddingBottom:20}}>
                   <Navbar.Brand>
-                      <span><Link to="/" style={{ textDecoration: 'none',padding: 13, color: 'black', fontFamily:'Century Gothic', fontWeight:'bold' }}>ETUSIVU</Link></span>
-                      <span><Link to="/login" style={{ textDecoration: 'none', padding: 13, color: 'black', fontFamily:'Century Gothic', fontWeight:'bold'}}>KIRJAUDU</Link></span>
-                      <span><Link to="/register" style={{ textDecoration: 'none', padding: 13, color: 'black', fontFamily:'Century Gothic', fontWeight:'bold'}}>REKISTERÖIDY</Link></span>
+
+                      <span><Link to="/" style={{ textDecoration: 'none',padding: 20, color: 'black', fontFamily:'Lucida Console', fontSize: 25, textShadow: '2px 2px #D3D3D3' }}>ETUSIVU</Link></span>
+                      <span><Link to="/login" style={{ textDecoration: 'none', padding: 20, color: 'black', fontFamily:'Lucida Console',fontSize: 25, textShadow: '2px 2px #D3D3D3'}}>KIRJAUDU</Link></span>
+                      <span><Link to="/register" style={{ textDecoration: 'none', padding: 20, color: 'black', fontFamily:'Lucida Console', fontSize: 25, textShadow: '2px 2px #D3D3D3'}}>REKISTERÖIDY</Link></span>
+
                   </Navbar.Brand>
                   {/* <Navbar.Toggle /> */}
               </Navbar.Header>
