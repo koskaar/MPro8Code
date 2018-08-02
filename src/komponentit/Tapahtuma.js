@@ -11,7 +11,7 @@ class Tapahtuma extends Component {
         let nappula;
         console.log(this.props.onkoKirjautunut);
         if (this.props.onkoKirjautunut) {
-            nappula = <button type="button" onClick={this.poista}>Poista</button>
+            nappula = <button type="button" onClick={this.poista}style={{fontFamily:'Lucida Console', fontSize:15, marginTop: 8}} className="hvr5">Poista</button>
         }
         else {
             nappula = "";
@@ -19,7 +19,7 @@ class Tapahtuma extends Component {
         return (
 
 
-            <div className="Tapahtuma"><center>
+            <div className="Tapahtuma" style={{fontFamily:'Lucida Console', padding:13, background: 'rgba(255, 237, 233, 0.6)'}}><center>
                 <div className="borderlegend">TAPAHTUMA</div>
                 <p className="tnimi"><b>Tapahtuman nimi:</b> {this.props.tapahtuma.name}</p>
                 <p className="taika"><b>Ajankohta:</b> {this.props.tapahtuma.time}</p>

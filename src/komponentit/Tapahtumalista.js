@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Tapahtumalista.css'
 import Tapahtuma from './Tapahtuma';
 import Geolocated from './radiobutton';
 
@@ -62,23 +62,24 @@ class Tapahtumalista extends Component {
         
         
         return (
-            <div><center>
+            <div style={{fontFamily:'Lucida Console', padding:13, background: 'rgba(255, 237, 233, 0.6)'}}><center>
 
 
                 <div>
                     {/* <Geolocated/> */}
-                    <div onChange={this.setGender.bind(this)}>
-                            <input type="radio" value="name" name="gender"/> Nimi
-                            <input type="radio" value="category" name="gender"/> Kategoria
-                            <input type="radio" value="location" name="gender"/> Sijainti
+                    <div onChange={this.setGender.bind(this)} style={{paddingTop:20, paddingBottom: 20}}>
+                    
+                            <input type="radio" value="name" name="gender"className="hvr6" /> Nimi
+                            <input type="radio" value="category" name="gender"className="hvr6" /> Kategoria
+                            <input type="radio" value="location" name="gender"className="hvr6"/> Sijainti
                      </div>
 
 
-                    <input className="center" type="text" value={this.state.search}
+                    <input className="hvr6" type="text" placeholder= "Hae" value={this.state.search} style={{fontSize:15, fontFamily:'Lucida Console'}}
                         onChange={this.updateSearch.bind(this)} />
                 </div>
 
-                <div className="borderlegend" style={{fontFamily:'Lucida Console', textShadow: '2px 2px #D3D3D3', padding:13, background: 'rgba(255, 237, 233, 0.6)', fontSize: 20, paddingTop: 20, paddingBottom: 20}}>▿TAPAHTUMAT▿</div>
+                <div className="borderlegend" style={{fontSize:20, textShadow: '2px 2px #D3D3D3', color: '#131313', paddingTop: 15}} >▿TAPAHTUMAT▿</div>
             <ul className="tapahtumalista">
                 {kaikki}
             </ul>
