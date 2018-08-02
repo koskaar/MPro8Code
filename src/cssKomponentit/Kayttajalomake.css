@@ -1,0 +1,14 @@
+.Kayttajanlisays {
+    align-content: center;
+    background-color: rgb(255, 196, 118);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(24, 24, 24);
+    margin-left: 100px;
+    margin-right: 80px;
+    margin-bottom: 40px;
+    padding: 20px
+}
+
+input {
+    margin-left: 40px;
+}

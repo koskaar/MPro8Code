@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-//import "./Login.css";
 import Kayttajalomake from './Kayttajalomake';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './Kayttajankirjautuminen.css'
+import { haeKayttaja, poistaKayttaja } from "../palvelu";
 
 export default class Kayttajakirjautuminen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      email: "",
-      password: ""
-    };
+
+    this.state = { email: "", password: "", user_id: "", pwAlku: "", pwKayttaja: "", kirjautunut: false };
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    return this.state.name.length > 0 && this.state.password.length > 0;
+
+
+
   }
 
   handleChange = event => {
@@ -27,56 +28,67 @@ export default class Kayttajakirjautuminen extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.kirjaudu(this.state.email, this.state.password);
-    this.setState({email:"", password:""})
+    this.kirjaa(this.state.email, this.state.password);
     
   }
+
+  kirjaa = (email, password) => {
+    this.setState({ pwAlku: password });
+    // haeKayttaja saa callback-funktion "function(kt)"
+    // jonka avulla haeKayttaja voi palauttaa haetun
+    // käyttäjän.
+    haeKayttaja(email, password, function (kt) {
+        this.setState({ email: kt.email, user_id: kt.user_id, pwKayttaja: kt.pw, kirjautunut: true })
+        console.dir(this.state.email);
+        this.setState({ email: '', password: '' });
+    }.bind(this));
+
+}
 
   render() {
 
     return (
-      <div className="Login">
-        <form onSubmit={this.handleSubmit} style= {{padding: 13, background: 'rgba(255, 237, 233, 0.6)'}}>
+
+
+
+      
+      <center><div className="Login">
+
+        <form onSubmit={this.handleSubmit} style= {{padding: 13, paddingRight: 40, background: 'rgba(255, 237, 233, 0.6)', paddingTop: 50}}>
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel style = {{fontFamily:'Lucida Console', padding:13}}>Sähköposti</ControlLabel>
             <FormControl className="hvr2"
+
               autoFocus
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
             />
+
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
+
             <ControlLabel style= {{fontFamily:'Lucida Console', padding:13, }}>Salasana</ControlLabel>
             <FormControl style={{marginLeft:19}} className="hvr2"
+
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
           </FormGroup>
-          <Button style ={{fontFamily:'Lucida Console', fontSize:15, marginLeft:150, marginTop: 13}}
+
+          <Button style ={{fontFamily:'Lucida Console', fontSize:15, marginLeft:125, marginTop: 13, marginBottom: 30}}
+
             block
             bsSize="large"
-            type="submit"
-            
-          >
+            type="submit">
             Kirjaudu
-          </Button>
-          
-          
+            </Button>
+
+
         </form>
-        
-        <Router>
-      <div style={{background: 'rgba(255, 237, 233, 0.6)'}}>
-      <Link to="/Kayttajalomake" style={{ textDecoration: 'none',padding: 13, color: 'black', fontFamily:'Lucida Console', marginLeft: 12}}>Rekisteröidy tästä</Link>
-          <div className="move">
-          <Switch>
-              <Route exact path="/Kayttajalomake" component={Kayttajalomake} />
-              </Switch>
-          </div>
-      </div>
-    </Router>
-      </div>
+
+      </div></center>
     );
   }
 }

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -21,6 +22,7 @@
 .App-intro {
   font-size: large;
 }
+
 .navi{
   background: linear-gradient(rgb(255, 255, 255),#FFEDE9);
   background-color: rgb(255, 237, 233);
@@ -34,8 +36,6 @@ body{
   background-size: cover;
 
 }
-
-
 
 
 @keyframes App-logo-spin {
