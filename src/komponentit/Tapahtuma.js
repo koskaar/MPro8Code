@@ -17,7 +17,7 @@ class Tapahtuma extends Component {
                     <p className="thinta">{this.props.tapahtuma.price}</p>
                     <p className="tgps">{this.props.tapahtuma.gps}</p>
                     <p>
-                        <button type="button" onClick={this.poista}>Poista</button>
+                        <button type="button" onClick={this.poista}style={{fontFamily:'Lucida Console', fontSize:15, marginTop: 8}}>Poista</button>
                     </p>
                     </center>
                 </div>

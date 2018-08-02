@@ -3,6 +3,7 @@ import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 //import "./Login.css";
 import Kayttajalomake from './Kayttajalomake';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import './Kayttajankirjautuminen.css'
 
 export default class Kayttajakirjautuminen extends Component {
   constructor(props) {
@@ -35,10 +36,10 @@ export default class Kayttajakirjautuminen extends Component {
 
     return (
       <div className="Login">
-        <form onSubmit={this.handleSubmit} style= {{padding: 13}}>
+        <form onSubmit={this.handleSubmit} style= {{padding: 13, background: 'rgba(255, 237, 233, 0.6)'}}>
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel style = {{fontFamily: 'Century Gothic', padding:13}}>Sähköposti</ControlLabel>
-            <FormControl
+            <ControlLabel style = {{fontFamily:'Lucida Console', padding:13}}>Sähköposti</ControlLabel>
+            <FormControl className="hvr2"
               autoFocus
               type="email"
               value={this.state.email}
@@ -46,14 +47,14 @@ export default class Kayttajakirjautuminen extends Component {
             />
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel style= {{fontFamily: 'Century Gothic', padding:13, }}>Salasana</ControlLabel>
-            <FormControl
+            <ControlLabel style= {{fontFamily:'Lucida Console', padding:13, }}>Salasana</ControlLabel>
+            <FormControl style={{marginLeft:19}} className="hvr2"
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
           </FormGroup>
-          <Button style ={{fontFamily:'Century Gothic', fontSize:15, marginLeft:96}}
+          <Button style ={{fontFamily:'Lucida Console', fontSize:15, marginLeft:150, marginTop: 13}}
             block
             bsSize="large"
             type="submit"
@@ -66,8 +67,8 @@ export default class Kayttajakirjautuminen extends Component {
         </form>
         
         <Router>
-      <div>
-      <Link to="/Kayttajalomake" style={{ textDecoration: 'none',paddingLeft: 13, color: 'black', fontFamily:'Century Gothic'}}>Rekisteröidy tästä</Link>
+      <div style={{background: 'rgba(255, 237, 233, 0.6)'}}>
+      <Link to="/Kayttajalomake" style={{ textDecoration: 'none',padding: 13, color: 'black', fontFamily:'Lucida Console', marginLeft: 12}}>Rekisteröidy tästä</Link>
           <div className="move">
           <Switch>
               <Route exact path="/Kayttajalomake" component={Kayttajalomake} />

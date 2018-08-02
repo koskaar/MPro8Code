@@ -23,11 +23,16 @@
 }
 .navi{
   background: linear-gradient(rgb(255, 255, 255),#FFEDE9);
-  background-color: #FFEDE9;
+  background-color: rgb(255, 237, 233);
+  opacity: .8
+
   
 }
 body{
   background-color: #FFEDE9;
+  background-image: url('painting.jpg');
+  background-size: cover;
+
 }
 
 

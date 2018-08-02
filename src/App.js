@@ -37,8 +37,8 @@ import Kayttajakirjautuminen from './komponentit/Kayttajakirjautuminen';
           <Navbar style={{paddingTop:20}}><center>
               <Navbar.Header className="navi">
                   <Navbar.Brand>
-                      <span><Link to="/" style={{ textDecoration: 'none',padding: 13, color: 'black', fontFamily:'Century Gothic', fontWeight:'bold' }}>ETUSIVU</Link></span>
-                      <span><Link to="/login" style={{ textDecoration: 'none', padding: 13, color: 'black', fontFamily:'Century Gothic', fontWeight:'bold'}}>KIRJAUDU</Link></span>
+                      <span><Link to="/" style={{ textDecoration: 'none',padding: 30, color: 'black', fontFamily:'Lucida Console', fontSize: 25, textShadow: '2px 2px #D3D3D3' }}>ETUSIVU</Link></span>
+                      <span><Link to="/login" style={{ textDecoration: 'none', padding: 30, color: 'black',  fontFamily:'Lucida Console', fontSize: 25, textShadow: '2px 2px #D3D3D3'}}>KIRJAUDU</Link></span>
 
                   </Navbar.Brand>
                   {/* <Navbar.Toggle /> */}

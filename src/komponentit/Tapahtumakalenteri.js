@@ -78,18 +78,18 @@ class Tapahtumakalenteri extends Component {
         return (
             <div>
 
-                Email:{this.state.email}
+                {/* Email:{this.state.email} */}
 
 
                 <div className="tapahtumakalenteri">
 
 
                     <Tapahtumalomake lisaaTapahtuma={this.uusiTapahtuma}/>
-                    <Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma}/></div>
+                    <center><Tapahtumalista tapahtumat={this.state.eventit} poisto={this.poistaTapahtuma}/></center></div>
                     {/* <Kayttajakirjautuminen kirjaudu={this.kirjaudu}/>
                     {/* {varoitus} */}
                     {/* <Kayttajalista kayttajat={this.state.userit} poisto={this.poistaKayttaja}/>
-                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/> */} */}
+                    <Kayttajalomake lisaaKayttaja={this.uusiKayttaja}/> */} 
                    
                     </div>
 
