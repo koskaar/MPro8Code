@@ -1,0 +1,22 @@
+.Kayttajakirjautuminen {
+    align-content: center;
+    background-color: rgb(87, 104, 250);
+    padding: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: whitesmoke;
+    margin-left: 100px;
+    margin-right: 80px;
+    margin-top: -30px;
+}
+
+.Kayttajatunnus {
+    margin-right: 20px;
+}
+
+.Salasana {
+    margin-right: 63px;
+}
+
+/* .KirjauduNappula {
+    margin-left: 210px;
+} */
