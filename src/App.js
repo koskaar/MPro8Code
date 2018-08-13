@@ -23,7 +23,7 @@ class App extends Component {
                             <Route exact path="/" component={Tapahtumakalenteri} />
                             <Route path="/login" component={Kayttajakirjautuminen} />
                             <Route path="/register" component={Kayttajalomake} />
-                            {/* testaan tätä forkkausta ja githubin ominaisuuksi / viljami hjhjkhikhjkhjkh <Route path="/create" component={QuoteForm}/>
+                            {/* testaan tätä forkkausta ja githubin ominaisuuksi /  paskaa viljami hjhjkhikhjkhjkh <Route path="/create" component={QuoteForm}/>
               <Route path="/details" component={QuoteDetails}/> */}
                             {/* <Route component={NotFound}/> */}
                         </Switch>
